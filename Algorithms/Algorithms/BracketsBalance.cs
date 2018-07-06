@@ -28,7 +28,9 @@ namespace Algorithms
 
                 var lastBracket = stack.Peek();
                 
-                if (bracketPairs[charick] != lastBracket) return false;
+                if(!bracketPairs.TryGetValue(charick, out var result)) continue;
+                    
+                if (result != lastBracket) return false;
                 
                 stack.Pop();
             }
