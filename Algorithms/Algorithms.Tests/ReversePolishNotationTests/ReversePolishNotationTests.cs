@@ -10,12 +10,13 @@ namespace Algorithms.Tests
         [InlineData("1+1", 2)]
         [InlineData("2+2*2", 6)]
         [InlineData("2^2", 4)]
-        [InlineData("1--1",2)]
+        [InlineData("1--1", 2)]
         [InlineData("1 + 1 - 1", 1)]
         [InlineData("1+1-1", 1)]
         [InlineData("1+1+(-1)", 1)]
         [InlineData("2^2+2", 6)]
         [InlineData("(2/2)^2", 1)]
+        [InlineData("2+(-2)* 2", -2)]
         public void Check(string input, double expected)
         {
             Assert.Equal(expected, ReversePolishNotation.Calculate(ReversePolishNotation.Parse(input)));
