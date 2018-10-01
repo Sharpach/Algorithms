@@ -2,11 +2,14 @@ using Algorithms.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithms
 {
     public class BinarySearchTree<T> : IEnumerable<T>
     {
+        private BinaryTreeNode<T> _root;
+
         public BinarySearchTree()
         {
         }
@@ -21,14 +24,9 @@ namespace Algorithms
             throw new NotImplementedException();
         }
 
-        public bool IsEmpty { get; }
+        public bool IsEmpty => _root == null;
 
         public bool Contains(T data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -43,9 +41,18 @@ namespace Algorithms
             throw new NotImplementedException();
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (_root == null)
+            {
+                return Enumerable.Empty<T>().GetEnumerator();
+            }
+            throw new NotImplementedException();
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
     }
 }
