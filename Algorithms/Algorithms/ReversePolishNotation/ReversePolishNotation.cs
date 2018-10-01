@@ -10,18 +10,18 @@ namespace Algorithms
     {
         public static List<string> Parse(string expression)
         {
-            List<string> parsed = new List<string>();
-            foreach (var a in Regex.Split(expression, @"((?<!\d)-?\d+\.?\d*)|([\+\-\*\/\^])|(\()|(\))"))
+            var parsedTokens = new List<string>();
+            foreach (var parsedToken in Regex.Split(expression, @"((?<!\d)-?\d+\.?\d*)|([\+\-\*\/\^])|(\()|(\))")
+                                             .Where(token => !String.IsNullOrWhiteSpace(token)))
             {
-                if (!String.IsNullOrWhiteSpace(a))
-                    parsed.Add(a);
+                    parsedTokens.Add(parsedToken);
             }
 
-            Queue<string> output = new Queue<string>();
-            Stack<char> operators = new Stack<char>();
-            foreach (string token in parsed)
+            var output = new Queue<string>();
+            var operators = new Stack<char>();
+            foreach (string token in parsedTokens)
             {
-                char ctoken = token[0];
+                char op = token[0]; //not "operator" because it's already clamed by C# //also token[0] is best way to convert string to char
                 if (double.TryParse(token, out double number))
                 {
                     output.Enqueue(token);
@@ -29,25 +29,24 @@ namespace Algorithms
                 }
                 if (Regex.IsMatch(token, @"[\+\-\*\/\^]"))
                 {
-                    ctoken = token[0];
-                    while (operators.Count > 0 && operators.Peek() != '(' && (GetPrecedence(operators.Peek()) >= GetPrecedence(ctoken)))
+                    while (operators.Count > 0 && operators.Peek() != '(' && (GetPrecedence(operators.Peek()) >= GetPrecedence(op)))
                     {
                         output.Enqueue(operators.Pop().ToString());
                     }
-                    operators.Push(ctoken);
+                    operators.Push(op);
                     continue;
                 }
-                if (ctoken == '(')
+                if (op == '(')
                 {
-                    operators.Push(ctoken);
+                    operators.Push(op);
                     continue;
                 }
-                if (ctoken == ')')
+                if (op == ')')
                 {
                     while (operators.Peek() != '(')
                     {
                         if (operators.Count == 0)
-                            throw new ArithmeticException("Brackets isn't balanced!");
+                            throw new ArithmeticException("Brackets aren't balanced!");
                         output.Enqueue(operators.Pop().ToString());
                     }
                     operators.Pop();
@@ -57,7 +56,7 @@ namespace Algorithms
             while (operators.Count > 0)
             {
                 if (operators.Peek() == '(' || operators.Peek() == ')')
-                    throw new ArithmeticException("Brackets isn't balanced!");
+                    throw new ArithmeticException("Brackets aren't balanced!");
                 output.Enqueue(operators.Pop().ToString());
             }
             return output.ToList();
@@ -65,28 +64,45 @@ namespace Algorithms
 
         public static double Calculate(List<string> expression)
         {
-            Stack<double> expressions = new Stack<double>();
+            var expressions = new Stack<double>();
             var switchDict = new Dictionary<string, Action>()
             {
-                { "^" , () => { var b = expressions.Pop();
-                                expressions.Push(Math.Pow(expressions.Pop(), b));} },
-                { "*" , () => expressions.Push(expressions.Pop() * expressions.Pop())},
-                { "/" , () => { var a = expressions.Pop();
-                                expressions.Push(expressions.Pop() / a); } },
-                { "+" , () => expressions.Push(expressions.Pop() + expressions.Pop())},
-                { "-" , () => { var b = expressions.Pop();
-                                expressions.Push(expressions.Pop() - b);} },
+                { "^" , () => {
+                        var b = expressions.Pop();
+                        expressions.Push(Math.Pow(expressions.Pop(), b));
+                    }
+                },
+
+                { "*" , () => 
+                        expressions.Push(expressions.Pop() * expressions.Pop())
+                },
+
+                { "/" , () => {
+                        var a = expressions.Pop();
+                        expressions.Push(expressions.Pop() / a);
+                    }
+                },
+
+                { "+" , () => 
+                        expressions.Push(expressions.Pop() + expressions.Pop())
+                },
+
+                { "-" , () => {
+                        var b = expressions.Pop();
+                        expressions.Push(expressions.Pop() - b);
+                    }
+                },
             };
 
-            for (int i = 0; i < expression.Count; i++)
+            foreach (string value in expression)
             {
-                if (double.TryParse(expression[i], out double result))
+                if (double.TryParse(value, out double result))
                 {
                     expressions.Push(result);
                 }
                 else
                 {
-                    switchDict[expression[i]]();
+                    switchDict[value]();
                 }
             }
             return expressions.Pop();
