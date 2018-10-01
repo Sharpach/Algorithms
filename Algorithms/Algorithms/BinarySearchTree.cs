@@ -16,7 +16,10 @@ namespace Algorithms
 
         public BinarySearchTree(T data)
         {
-            throw new NotImplementedException();
+            _root = new BinaryTreeNode<T>
+            {
+                Data = data
+            };
         }
 
         public BinarySearchTree(BinaryTreeNode<T> root)
@@ -47,12 +50,34 @@ namespace Algorithms
             {
                 return Enumerable.Empty<T>().GetEnumerator();
             }
-            throw new NotImplementedException();
+
+            return IterateNodes(_root).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
+        }
+
+        private IEnumerable<T> IterateNodes(BinaryTreeNode<T> node)
+        {
+            if (node.LeftChild != null)
+            {
+                foreach (var i in IterateNodes(node.LeftChild))
+                {
+                    yield return i;
+                }
+            }
+
+            yield return node.Data;
+
+            if (node.RightChild != null)
+            {
+                foreach (var i in IterateNodes(node.RightChild))
+                {
+                    yield return i;
+                }
+            }
         }
     }
 }
