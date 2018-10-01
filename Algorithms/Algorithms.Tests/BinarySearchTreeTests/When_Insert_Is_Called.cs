@@ -3,14 +3,21 @@ using Xunit;
 
 namespace Algorithms.Tests.BinarySearchTreeTests
 {
-    public class When_Insert_Is_Called : BinarySearchTreeTest
+    public class When_Insert_Is_Called
     {
+        private readonly BinarySearchTree<int> _tree;
+
+        public When_Insert_Is_Called()
+        {
+            _tree = new BinarySearchTree<int>();
+        }
+
         [Fact]
         public void Then_Contains_Returns_True()
         {
-            Tree.Insert(1);
+            _tree.Insert(1);
 
-            Tree.Contains(1).ShouldBeTrue();
+            _tree.Contains(1).ShouldBeTrue();
         }
 
         [Theory]
@@ -19,23 +26,23 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         {
             foreach (var i in items)
             {
-                Tree.Insert(i);
+                _tree.Insert(i);
             }
 
             foreach (var i in items)
             {
-                Tree.Contains(i).ShouldBeTrue();
+                _tree.Contains(i).ShouldBeTrue();
             }
         }
 
         [Fact]
         public void Then_Tree_Is_Not_Empty()
         {
-            Tree.IsEmpty.ShouldBeTrue();
+            _tree.IsEmpty.ShouldBeTrue();
 
-            Tree.Insert(10);
+            _tree.Insert(10);
 
-            Tree.IsEmpty.ShouldBeFalse();
+            _tree.IsEmpty.ShouldBeFalse();
         }
     }
 }
