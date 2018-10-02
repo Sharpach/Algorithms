@@ -110,13 +110,13 @@ namespace Algorithms.Trie
         private void ClearNodes(Trie value)
         {
             int removedNodes = 0;
-            foreach (var keyValue in _children)
+            foreach (var keyValue in value._children)
             {
                 ClearNodes(keyValue.Value);
                 removedNodes++;
             }
             _size -= removedNodes;
-            _children.Clear();
+            value._children.Clear();
         }
     }
 }
