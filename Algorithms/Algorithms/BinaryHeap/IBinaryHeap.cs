@@ -1,6 +1,6 @@
 using System;
 
-namespace Algorithms.BinaryHeap
+namespace Algorithms 
 {
     internal interface IBinaryHeap<T>
         where T : IComparable

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Algorithms.BinaryHeap
+namespace Algorithms
 {
     public class BinaryHeap<T> : IBinaryHeap<T>
         where T : IComparable

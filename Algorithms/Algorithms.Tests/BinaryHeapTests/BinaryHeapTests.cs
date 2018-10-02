@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Data;
-using Algorithms.BinaryHeap;
 using Xunit;
 
-namespace Algorithms.Tests.BinaryHeap
+namespace Algorithms.Tests
 {
     public class BinaryHeapTests
     {
