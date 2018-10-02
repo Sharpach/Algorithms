@@ -1,39 +1,23 @@
-using System;
-
-namespace Atlas.KarmaWorker.Utils.Decision
+namespace Algorithms.DecisionTree
 {
-    /// <summary>
-    /// Decision tree
-    /// </summary>
-    /// <typeparam name="TIn">Shared object, common for all decisions</typeparam>
+    /// <summary>Decision tree</summary>
+    /// <typeparam name="TIn">Shared state, carrying through all decisions</typeparam>
     /// <typeparam name="TOut">Decision type</typeparam>
+    /// <remarks>Kind of specialized N-ary decision tree with mutable state, carrying along all decisions</remarks>
     public class DecisionTree<TIn, TOut>
     {
-        private IDecision<TIn, TOut> root;
+        private readonly IDecision<TIn, TOut> _root;
 
         public DecisionTree(IDecision<TIn, TOut> root)
         {
-            this.root = root;
+            _root = root;
         }
 
-        public TOut Solve()
-        {
-            if (root == null)
-                throw new InvalidOperationException();
+        public TOut Solve() => SolveInternal(_root);
 
-            TOut result = default;
-            while (root != null)
-            {
-                root.Mutator(root, root.Value);
-                if (root.Key == 0)
-                {
-                    result = root.Result;
-                    break;
-                }
-                root = root.GetNextBranch(root.Key);
-            }
-
-            return result;
-        }
+        private TOut SolveInternal(IDecision<TIn, TOut> currentNode) 
+            => currentNode.Decider(currentNode, currentNode.Value)
+                          .Match(x => SolveInternal(x),
+                                 y => y);
     }
 }

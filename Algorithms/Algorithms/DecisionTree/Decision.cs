@@ -1,26 +1,17 @@
 using System;
-using System.Collections.Generic;
 
-namespace Atlas.KarmaWorker.Utils.Decision
+namespace Algorithms.DecisionTree
 {
     public class Decision<TIn, TOut> : IDecision<TIn, TOut>
     {
-        public Decision(TIn value)
+        public Decision(TIn value, Func<IDecision<TIn, TOut>, TIn, Either<IDecision<TIn, TOut>, TOut>> decider)
         {
             Value = value;
+            Decider = decider;
         }
 
-        public int Key { get; set; }
-        
-        public TOut Result { get; set; }
         public TIn Value { get; }
 
-        public Dictionary<int, IDecision<TIn, TOut>> Branches { get; set; }
-        public Action<IDecision<TIn, TOut>, TIn> Mutator { get; set; }
-        
-        public IDecision<TIn, TOut> GetNextBranch(int key) 
-            => Branches.ContainsKey(key)
-               ? Branches[key]
-               : null;
+        public Func<IDecision<TIn, TOut>, TIn, Either<IDecision<TIn, TOut>, TOut>> Decider { get; }
     }
 }
