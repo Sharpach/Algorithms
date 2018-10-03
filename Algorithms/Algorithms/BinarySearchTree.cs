@@ -66,6 +66,11 @@ namespace Algorithms
 
         public void Remove(T data)
         {
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("The tree is empty.");
+            }
+
             throw new NotImplementedException();
         }
 
@@ -81,7 +86,7 @@ namespace Algorithms
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
 
         private static IEnumerable<T> IterateNodes(BinaryTreeNode<T> node)
