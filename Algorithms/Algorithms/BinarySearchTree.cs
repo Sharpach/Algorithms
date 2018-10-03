@@ -42,7 +42,12 @@ namespace Algorithms
 
         public bool Contains(T data)
         {
-            throw new NotImplementedException();
+            if (_rootNode == null)
+            {
+                return false;
+            }
+
+            return Contains(data, _rootNode);
         }
 
         public void Insert(T data)
@@ -56,7 +61,7 @@ namespace Algorithms
                 return;
             }
 
-            throw new NotImplementedException();
+            Insert(data, _rootNode);
         }
 
         public void Remove(T data)
@@ -162,6 +167,23 @@ namespace Algorithms
                 Insert(data, node.RightChild);
                 return;
             }
+        }
+
+        private static bool Contains(T data, BinaryTreeNode<T> node)
+        {
+            var comparisonValue = data.CompareTo(node.Data);
+
+            if (comparisonValue == 0)
+            {
+                return true;
+            }
+
+            if (comparisonValue < 0)
+            {
+                return node.LeftChild != null && Contains(data, node.LeftChild);
+            }
+
+            return node.RightChild != null && Contains(data, node.RightChild);
         }
     }
 }
