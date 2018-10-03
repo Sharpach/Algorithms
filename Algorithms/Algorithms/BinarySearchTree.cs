@@ -126,11 +126,41 @@ namespace Algorithms
 
         private static void Insert(T data, BinaryTreeNode<T> node)
         {
+            var comparisonValue = data.CompareTo(node.Data);
 
-
-            if (data.CompareTo(_rootNode.Data) == 0)
+            if (comparisonValue == 0)
             {
                 throw new ArgumentNullException("The element already exists in the tree.");
+            }
+
+            if (comparisonValue < 0)
+            {
+                if (node.LeftChild == null)
+                {
+                    node.LeftChild = new BinaryTreeNode<T>
+                    {
+                        Data = data
+                    };
+                    return;
+                }
+
+                Insert(data, node.LeftChild);
+                return;
+            }
+
+            if (comparisonValue > 0)
+            {
+                if (node.RightChild == null)
+                {
+                    node.RightChild = new BinaryTreeNode<T>
+                    {
+                        Data = data
+                    };
+                    return;
+                }
+
+                Insert(data, node.RightChild);
+                return;
             }
         }
     }
