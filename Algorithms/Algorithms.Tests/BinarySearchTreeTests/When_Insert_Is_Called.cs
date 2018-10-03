@@ -1,4 +1,5 @@
 using Shouldly;
+using System;
 using Xunit;
 
 namespace Algorithms.Tests.BinarySearchTreeTests
@@ -43,6 +44,30 @@ namespace Algorithms.Tests.BinarySearchTreeTests
             _tree.Insert(10);
 
             _tree.IsEmpty.ShouldBeFalse();
+        }
+
+        [Fact]
+        public void If_Element_To_Insert_Is_A_Duplicate_Then_ArgumentException_Is_Thrown()
+        {
+            const int duplicateToInsert = 12;
+
+            _tree.Insert(duplicateToInsert);
+
+            Action badInsert = () => _tree.Insert(duplicateToInsert);
+
+            badInsert.ShouldThrow<ArgumentException>("The element already exists in the tree.");
+        }
+
+        [Fact]
+        public void If_Element_Is_Less_Than_Root_Then_Element_Is_Inserted_Into_Left_Subtree()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact]
+        public void If_Element_Is_Greater_Than_Root_Then_Element_Is_Inserted_Into_Right_Subtree()
+        {
+            throw new NotImplementedException();
         }
     }
 }

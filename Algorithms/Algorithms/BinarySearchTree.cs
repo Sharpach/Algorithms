@@ -47,6 +47,15 @@ namespace Algorithms
 
         public void Insert(T data)
         {
+            if (_rootNode == null)
+            {
+                _rootNode = new BinaryTreeNode<T>
+                {
+                    Data = data
+                };
+                return;
+            }
+
             throw new NotImplementedException();
         }
 
@@ -113,6 +122,16 @@ namespace Algorithms
             }
 
             return isSorted;
+        }
+
+        private static void Insert(T data, BinaryTreeNode<T> node)
+        {
+
+
+            if (data.CompareTo(_rootNode.Data) == 0)
+            {
+                throw new ArgumentNullException("The element already exists in the tree.");
+            }
         }
     }
 }
