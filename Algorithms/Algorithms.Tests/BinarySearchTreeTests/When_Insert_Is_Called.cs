@@ -1,3 +1,4 @@
+using Algorithms.Models;
 using Shouldly;
 using System;
 using Xunit;
@@ -61,6 +62,12 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [Fact]
         public void If_Element_Is_Less_Than_Root_Then_Element_Is_Inserted_Into_Left_Subtree()
         {
+            var rootNode = new BinaryTreeNode<int>
+            {
+                Data = 10
+            };
+            var tree = new BinarySearchTree<int>();
+
             throw new NotImplementedException();
         }
 
