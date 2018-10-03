@@ -62,19 +62,37 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [Fact]
         public void If_Element_Is_Less_Than_Root_Then_Element_Is_Inserted_Into_Left_Subtree()
         {
+            const int rootNodeValue = 10;
+            const int valueToInsert = rootNodeValue - 1;
+
             var rootNode = new BinaryTreeNode<int>
             {
-                Data = 10
+                Data = rootNodeValue
             };
-            var tree = new BinarySearchTree<int>();
+            var tree = new BinarySearchTree<int>(rootNode);
 
-            throw new NotImplementedException();
+            tree.Insert(valueToInsert);
+
+            rootNode.LeftChild.ShouldNotBeNull();
+            rootNode.LeftChild.Data.ShouldBe(valueToInsert);
         }
 
         [Fact]
         public void If_Element_Is_Greater_Than_Root_Then_Element_Is_Inserted_Into_Right_Subtree()
         {
-            throw new NotImplementedException();
+            const int rootNodeValue = 10;
+            const int valueToInsert = rootNodeValue + 1;
+
+            var rootNode = new BinaryTreeNode<int>
+            {
+                Data = rootNodeValue
+            };
+            var tree = new BinarySearchTree<int>(rootNode);
+
+            tree.Insert(valueToInsert);
+
+            rootNode.RightChild.ShouldNotBeNull();
+            rootNode.RightChild.Data.ShouldBe(valueToInsert);
         }
     }
 }
