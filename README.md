@@ -14,7 +14,7 @@ Some algorithms implementation for self-training.
 | [Binary heap](https://github.com/Sharpach/Algorithms/issues/7)                                    | :white_check_mark: |
 | [Topological sort](https://github.com/Sharpach/Algorithms/issues/2)                               | 
 | [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | 
-| [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | 
+| [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | :white_check_mark: |
 | [Huffman coding](https://github.com/Sharpach/Algorithms/issues/1)                                 | 
 | [True randomizer](https://en.wikipedia.org/wiki/Randomness)                                       | 
 | [Factorization](https://en.wikipedia.org/wiki/Factorization)                                      | 
