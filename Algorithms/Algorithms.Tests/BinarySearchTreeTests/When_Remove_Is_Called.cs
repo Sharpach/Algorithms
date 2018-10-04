@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,18 +48,52 @@ namespace Algorithms.Tests.BinarySearchTreeTests
             tree.Remove(node.LeftChild.RightChild.Data);
 
             node.LeftChild.RightChild.ShouldBeNull();
+
+            tree.Remove(node.RightChild.LeftChild.Data);
+
+            node.RightChild.LeftChild.ShouldBeNull();
+
+            tree.Remove(node.RightChild.RightChild.Data);
+
+            node.RightChild.RightChild.ShouldBeNull();
         }
 
         [Fact]
         public void If_Element_Has_One_Child_Then_Element_Is_Removed_And_Child_Replaces_Element()
         {
-            throw new NotImplementedException();
+            var node = BuildNodeWithFilledOutSubtrees();
+            var newLeftChild = node.LeftChild.LeftChild.Data;
+            var newRightChild = node.RightChild.RightChild.Data;
+
+            node.LeftChild.RightChild = null;
+            node.RightChild.LeftChild = null;
+
+            var tree = new BinarySearchTree<int>(node);
+
+            tree.Remove(node.LeftChild.Data);
+
+            node.LeftChild.Data.ShouldBe(newLeftChild);
+
+            tree.Remove(node.RightChild.Data);
+
+            node.RightChild.Data.ShouldBe(newRightChild);
         }
 
         [Fact]
         public void If_Element_Has_Two_Children_Then_Elements_In_Order_Successor_Replaces_Element()
         {
-            throw new NotImplementedException();
+            var node = BuildNodeWithFilledOutSubtrees();
+            var tree = new BinarySearchTree<int>(node);
+            var newLeftChild = node.LeftChild.RightChild.Data;
+            var newRightChild = node.RightChild.LeftChild.Data;
+
+            tree.Remove(node.LeftChild.Data);
+
+            node.LeftChild.Data.ShouldBe(newLeftChild);
+
+            tree.Remove(node.RightChild.Data);
+
+            node.RightChild.Data.ShouldBe(newRightChild);
         }
 
         private static BinaryTreeNode<int> BuildNodeWithFilledOutSubtrees()
