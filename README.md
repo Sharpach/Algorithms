@@ -1,5 +1,10 @@
 # Algorithms
 Some algorithms implementation for self-training.
+
+
+## Contributing
+See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIBUTING.md)
+
 ## Implemented Algorithms
 
 | Algorithm                                                                                         | C#                 |
