@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Algorithms
 {
-   public class Dijkstra
+    public class Dijkstra
     {
         /// <summary>
         ///  Calculate minimum distance
@@ -74,7 +74,7 @@ namespace Algorithms
             }
             Print(distance, verticesCount);
             return distance;
-            
+
         }
     }
 }

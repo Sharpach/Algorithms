@@ -5,13 +5,13 @@ using Xunit;
 
 namespace Algorithms.Tests
 {
-   public class DijkstraTests
+    public class DijkstraTests
     {
 
         [Fact]
         public void TraverseDFS()
         {
-           
+
             Dijkstra dijkstra = new Dijkstra();
             int[,] inputGraph =  {
                             { 0, 6, 0, 0, 0, 0, 0, 9, 0 },
@@ -27,12 +27,12 @@ namespace Algorithms.Tests
 
             int[] output = { 0, 6, 15, 20, 22, 12, 10, 9, 14 };
 
-           var result= dijkstra.DijkstraAlgo(inputGraph, 0, 9);
-            for(int i=0; i< output.Length; i += 1)
+            var result = dijkstra.DijkstraAlgo(inputGraph, 0, 9);
+            for (int i = 0; i < output.Length; i += 1)
             {
                 Assert.Equal(output[i], result[i]);
             }
-           
+
         }
     }
 }
