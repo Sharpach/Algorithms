@@ -20,4 +20,4 @@ Some algorithms implementation for self-training.
 | [Dijkstra’s algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)                      | 
 | [A*](https://en.wikipedia.org/wiki/A*)                                                            | 
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
-| [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  |
+| [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
