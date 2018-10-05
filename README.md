@@ -21,3 +21,4 @@ Some algorithms implementation for self-training.
 | [A*](https://en.wikipedia.org/wiki/A*)                                                            | 
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
 | [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
+| [K-means](https://es.wikipedia.org/wiki/K-means)                                                  |
