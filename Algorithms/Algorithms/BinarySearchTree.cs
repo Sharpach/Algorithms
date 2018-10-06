@@ -82,8 +82,6 @@ namespace Algorithms
 
         private static IEnumerable<T> IterateNodes(BinaryTreeNode<T> node)
         {
-            yield return node.Data;
-
             if (node.LeftChild != null)
             {
                 foreach (var i in IterateNodes(node.LeftChild))
@@ -91,6 +89,8 @@ namespace Algorithms
                     yield return i;
                 }
             }
+
+            yield return node.Data;
 
             if (node.RightChild != null)
             {
