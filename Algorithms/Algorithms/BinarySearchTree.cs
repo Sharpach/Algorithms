@@ -57,7 +57,12 @@ namespace Algorithms
                 throw new InvalidOperationException("The tree is empty.");
             }
 
-            Remove(data, _rootNode);
+            if (!Contains(data))
+            {
+                throw new InvalidOperationException("The element does not exist.");
+            }
+
+            _rootNode = Remove(data, _rootNode);
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -168,9 +173,42 @@ namespace Algorithms
             return comparisonValue == 0;
         }
 
-        private static void Remove(T data, BinaryTreeNode<T> node)
+        private static BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> node)
         {
-            throw new NotImplementedException();
+            if (node == null)
+            {
+                return null;
+            }
+
+            var comparisonValue = data.CompareTo(node.Data);
+            if (comparisonValue < 0)
+            {
+                node.LeftChild = Remove(data, node.LeftChild);
+            }
+            else if (comparisonValue > 0)
+            {
+                node.RightChild = Remove(data, node.RightChild);
+            }
+            else
+            {
+                if (node.LeftChild == null)
+                {
+                    node = node.RightChild;
+                }
+                else if (node.RightChild == null)
+                {
+                    node = node.LeftChild;
+                }
+                else
+                {
+                    var replacementValue = FindMinimum(node.RightChild);
+
+                    node.Data = replacementValue.Data;
+                    node.RightChild = Remove(replacementValue.Data, node.RightChild);
+                }
+            }
+
+            return node;
         }
 
         private static BinaryTreeNode<T> FindMinimum(BinaryTreeNode<T> node)

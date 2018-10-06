@@ -82,18 +82,25 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [Fact]
         public void If_Element_Has_Two_Children_Then_Elements_In_Order_Successor_Replaces_Element()
         {
-            var node = BuildNodeWithFilledOutSubtrees();
-            var tree = new BinarySearchTree<int>(node);
-            var newLeftChild = node.LeftChild.RightChild.Data;
-            var newRightChild = node.RightChild.LeftChild.Data;
+            var rootNode = BuildNodeWithFilledOutSubtrees();
+            var tree = new BinarySearchTree<int>(rootNode);
+            var newLeftChild = rootNode.LeftChild.RightChild.Data;
+            var newRightChild = rootNode.RightChild.RightChild.Data;
+            var newRootNode = rootNode.RightChild.LeftChild.Data;
 
-            tree.Remove(node.LeftChild.Data);
+            tree.Remove(rootNode.LeftChild.Data);
 
-            node.LeftChild.Data.ShouldBe(newLeftChild);
+            rootNode.LeftChild.Data.ShouldBe(newLeftChild);
 
-            tree.Remove(node.RightChild.Data);
+            tree.Remove(rootNode.RightChild.Data);
 
-            node.RightChild.Data.ShouldBe(newRightChild);
+            rootNode.RightChild.Data.ShouldBe(newRightChild);
+
+            tree.Remove(rootNode.Data);
+
+            rootNode.Data.ShouldBe(newRootNode);
+            rootNode.RightChild.Data.ShouldBe(newRightChild);
+            rootNode.LeftChild.Data.ShouldBe(newLeftChild);
         }
 
         private static BinaryTreeNode<int> BuildNodeWithFilledOutSubtrees()
