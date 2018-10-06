@@ -22,15 +22,15 @@ namespace Algorithms
 		/// </summary>
 		public class Node
 		{
-			public Colour colour;
-			public Node left;
-			public Node right;
-			public Node parent;
-			public T data;
+			public Colour Colour;
+			public Node Left;
+			public Node Right;
+			public Node Parent;
+			public T Data;
 
-			public Node(T data) { this.data = data; }
-			public Node(Colour colour) { this.colour = colour; }
-			public Node(T data, Colour colour) { this.data = data; this.colour = colour; }
+			public Node(T Data) { this.Data = Data; }
+			public Node(Colour Colour) { this.Colour = Colour; }
+			public Node(T Data, Colour Colour) { this.Data = Data; this.Colour = Colour; }
 		}
 		/// <summary>
 		/// Root node of the tree (both reference & pointer)
@@ -43,74 +43,74 @@ namespace Algorithms
 		/// <summary>
 		/// Left Rotate
 		/// </summary>
-		/// <param name="X"></param>
+		/// <param name="x"></param>
 		/// <returns>void</returns>
-		private void LeftRotate(Node X)
+		private void LeftRotate(Node x)
 		{
-			Node Y = X.right; // set Y
-			X.right = Y.left;//turn Y's left subtree into X's right subtree
-			if (Y.left != null)
+			Node y = x.Right; // set y
+			x.Right = y.Left;//turn y's Left subtree into x's Right subtree
+			if (y.Left != null)
 			{
-				Y.left.parent = X;
+				y.Left.Parent = x;
 			}
-			if (Y != null)
+			if (y != null)
 			{
-				Y.parent = X.parent;//link X's parent to Y
+				y.Parent = x.Parent;//link x's Parent to y
 			}
-			if (X.parent == null)
+			if (x.Parent == null)
 			{
-				root = Y;
+				root = y;
 			}
-			if (X == X.parent.left)
+			if (x == x.Parent.Left)
 			{
-				X.parent.left = Y;
+				x.Parent.Left = y;
 			}
 			else
 			{
-				X.parent.right = Y;
+				x.Parent.Right = y;
 			}
-			Y.left = X; //put X on Y's left
-			if (X != null)
+			y.Left = x; //put x on y's Left
+			if (x != null)
 			{
-				X.parent = Y;
+				x.Parent = y;
 			}
 
 		}
 		/// <summary>
 		/// Rotate Right
 		/// </summary>
-		/// <param name="Y"></param>
+		/// <param name="y"></param>
 		/// <returns>void</returns>
-		private void RightRotate(Node Y)
+		private void RightRotate(Node y)
 		{
-			// right rotate is simply mirror code from left rotate
-			Node X = Y.left;
-			Y.left = X.right;
-			if (X.right != null)
+			// Right rotate is simply mirror code from Left rotate
+			Node x = y.Left;
+			y.Left = x.Right;
+			if (x.Right != null)
 			{
-				X.right.parent = Y;
+				x.Right.Parent = y;
 			}
-			if (X != null)
+			if (x != null)
 			{
-				X.parent = Y.parent;
+				x.Parent = y.Parent;
 			}
-			if (Y.parent == null)
+			if (y.Parent == null)
 			{
-				root = X;
+				root = x;
 			}
-			if (Y == Y.parent.right)
+			if (y == y.Parent.Right)
 			{
-				Y.parent.right = X;
+				y.Parent.Right = x;
 			}
-			if (Y == Y.parent.left)
+			if (y == y.Parent.Left)
 			{
-				Y.parent.left = X;
+				y.Parent.Left = x;
 			}
 
-			X.right = Y;//put Y on X's right
-			if (Y != null)
+			x.Right = y;//put y on x's Right
+			if (y != null)
 			{
-				Y.parent = X;
+				y.Parent = x;
 			}
 		}
 		/// <summary>
@@ -125,7 +125,7 @@ namespace Algorithms
 			}
 			if (root != null)
 			{
-				InOrderDisplay(inOrderList, root);
+				InorderDisplay(inOrderList, root);
 			}
 			return inOrderList;
 		}
@@ -144,15 +144,15 @@ namespace Algorithms
 				{
 					break;
 				}
-				if (key.CompareTo(temp.data) < 0)
+				if (key.CompareTo(temp.Data) < 0)
 				{
-					temp = temp.left;
+					temp = temp.Left;
 				}
-				if (key.CompareTo(temp.data) > 0)
+				if (key.CompareTo(temp.Data) > 0)
 				{
-					temp = temp.right;
+					temp = temp.Right;
 				}
-				if (key.CompareTo(temp.data) == 0)
+				if (key.CompareTo(temp.Data) == 0)
 				{
 					isFound = true;
 					item = temp;
@@ -179,109 +179,109 @@ namespace Algorithms
 			if (root == null)
 			{
 				root = newItem;
-				root.colour = Colour.Black;
+				root.Colour = Colour.Black;
 				return;
 			}
-			Node Y = null;
-			Node X = root;
-			while (X != null)
+			Node y = null;
+			Node x = root;
+			while (x != null)
 			{
-				Y = X;
-				if (newItem.data.CompareTo(X.data) < 0)
+				y = x;
+				if (newItem.Data.CompareTo(x.Data) < 0)
 				{
-					X = X.left;
+					x = x.Left;
 				}
 				else
 				{
-					X = X.right;
+					x = x.Right;
 				}
 			}
-			newItem.parent = Y;
-			if (Y == null)
+			newItem.Parent = y;
+			if (y == null)
 			{
 				root = newItem;
 			}
-			else if (newItem.data.CompareTo(Y.data) < 0)
+			else if (newItem.Data.CompareTo(y.Data) < 0)
 			{
-				Y.left = newItem;
+				y.Left = newItem;
 			}
 			else
 			{
-				Y.right = newItem;
+				y.Right = newItem;
 			}
-			newItem.left = null;
-			newItem.right = null;
-			newItem.colour = Colour.Red;//colour the new node red
+			newItem.Left = null;
+			newItem.Right = null;
+			newItem.Colour = Colour.Red;//Colour the new node red
 			InsertionCheck(newItem);//call method to check for violations and fix
 		}
-		private void InOrderDisplay(List<T> inOrderList, Node current)
+		private void InorderDisplay(List<T> inorderList, Node current)
 		{
 			if (current != null)
 			{
-				InOrderDisplay(inOrderList, current.left);
-				inOrderList.Add(current.data);
-				InOrderDisplay(inOrderList, current.right);
+				InorderDisplay(inorderList, current.Left);
+				inorderList.Add(current.Data);
+				InorderDisplay(inorderList, current.Right);
 			}
 		}
 		private void InsertionCheck(Node item)
 		{
 			//Checks Red-Black Tree properties
-			while (item != root && item.parent.colour == Colour.Red)
+			while (item != root && item.Parent.Colour == Colour.Red)
 			{
 				/*We have a violation*/
-				if (item.parent == item.parent.parent.left)
+				if (item.Parent == item.Parent.Parent.Left)
 				{
-					Node Y = item.parent.parent.right;
-					if (Y != null && Y.colour == Colour.Red)//Case 1: uncle is red
+					Node y = item.Parent.Parent.Right;
+					if (y != null && y.Colour == Colour.Red)//Case 1: uncle is red
 					{
-						item.parent.colour = Colour.Black;
-						Y.colour = Colour.Black;
-						item.parent.parent.colour = Colour.Red;
-						item = item.parent.parent;
+						item.Parent.Colour = Colour.Black;
+						y.Colour = Colour.Black;
+						item.Parent.Parent.Colour = Colour.Red;
+						item = item.Parent.Parent;
 					}
 					else //Case 2: uncle is black
 					{
-						if (item == item.parent.right)
+						if (item == item.Parent.Right)
 						{
-							item = item.parent;
+							item = item.Parent;
 							LeftRotate(item);
 						}
-						//Case 3: recolour & rotate
-						item.parent.colour = Colour.Black;
-						item.parent.parent.colour = Colour.Red;
-						RightRotate(item.parent.parent);
+						//Case 3: reColour & rotate
+						item.Parent.Colour = Colour.Black;
+						item.Parent.Parent.Colour = Colour.Red;
+						RightRotate(item.Parent.Parent);
 					}
 
 				}
 				else
 				{
 					//mirror image of code above
-					Node X = null;
+					Node x = null;
 
-					X = item.parent.parent.left;
-					if (X != null && X.colour == Colour.Black)//Case 1
+					x = item.Parent.Parent.Left;
+					if (x != null && x.Colour == Colour.Black)//Case 1
 					{
-						item.parent.colour = Colour.Red;
-						X.colour = Colour.Red;
-						item.parent.parent.colour = Colour.Black;
-						item = item.parent.parent;
+						item.Parent.Colour = Colour.Red;
+						x.Colour = Colour.Red;
+						item.Parent.Parent.Colour = Colour.Black;
+						item = item.Parent.Parent;
 					}
 					else //Case 2
 					{
-						if (item == item.parent.left)
+						if (item == item.Parent.Left)
 						{
-							item = item.parent;
+							item = item.Parent;
 							RightRotate(item);
 						}
-						//Case 3: recolour & rotate
-						item.parent.colour = Colour.Black;
-						item.parent.parent.colour = Colour.Red;
-						LeftRotate(item.parent.parent);
+						//Case 3: reColour & rotate
+						item.Parent.Colour = Colour.Black;
+						item.Parent.Parent.Colour = Colour.Red;
+						LeftRotate(item.Parent.Parent);
 
 					}
 
 				}
-				root.colour = Colour.Black;//re-colour the root black as necessary
+				root.Colour = Colour.Black;//re-Colour the root black as necessary
 			}
 		}
 		/// <summary>
@@ -292,152 +292,152 @@ namespace Algorithms
 		{
 			//first find the node in the tree to delete and assign to item pointer/reference
 			Node item = Find(key);
-			Node X = null;
-			Node Y = null;
+			Node x = null;
+			Node y = null;
 
 			if (item == null)
 			{
 				Console.WriteLine("Nothing to delete!");
 				return;
 			}
-			if (item.left == null || item.right == null)
+			if (item.Left == null || item.Right == null)
 			{
-				Y = item;
+				y = item;
 			}
 			else
 			{
-				Y = TreeSuccessor(item);
+				y = TreeSuccessor(item);
 			}
-			if (Y.left != null)
+			if (y.Left != null)
 			{
-				X = Y.left;
-			}
-			else
-			{
-				X = Y.right;
-			}
-			if (X != null)
-			{
-				X.parent = Y;
-			}
-			if (Y.parent == null)
-			{
-				root = X;
-			}
-			else if (Y == Y.parent.left)
-			{
-				Y.parent.left = X;
+				x = y.Left;
 			}
 			else
 			{
-				Y.parent.left = X;
+				x = y.Right;
 			}
-			if (Y != item)
+			if (x != null)
 			{
-				item.data = Y.data;
+				x.Parent = y;
 			}
-			if (Y.colour == Colour.Black)
+			if (y.Parent == null)
 			{
-				DeletionCheck(X);
+				root = x;
+			}
+			else if (y == y.Parent.Left)
+			{
+				y.Parent.Left = x;
+			}
+			else
+			{
+				y.Parent.Left = x;
+			}
+			if (y != item)
+			{
+				item.Data = y.Data;
+			}
+			if (y.Colour == Colour.Black)
+			{
+				DeletionCheck(x);
 			}
 
 		}
 		/// <summary>
 		/// Checks the tree for any violations after deletion and performs a fix
 		/// </summary>
-		/// <param name="X"></param>
-		private void DeletionCheck(Node X)
+		/// <param name="x"></param>
+		private void DeletionCheck(Node x)
 		{
 
-			while (X != null && X != root && X.colour == Colour.Black)
+			while (x != null && x != root && x.Colour == Colour.Black)
 			{
-				if (X == X.parent.left)
+				if (x == x.Parent.Left)
 				{
-					Node W = X.parent.right;
-					if (W.colour == Colour.Red)
+					Node W = x.Parent.Right;
+					if (W.Colour == Colour.Red)
 					{
-						W.colour = Colour.Black; //case 1
-						X.parent.colour = Colour.Red; //case 1
-						LeftRotate(X.parent); //case 1
-						W = X.parent.right; //case 1
+						W.Colour = Colour.Black; //case 1
+						x.Parent.Colour = Colour.Red; //case 1
+						LeftRotate(x.Parent); //case 1
+						W = x.Parent.Right; //case 1
 					}
-					if (W.left.colour == Colour.Black && W.right.colour == Colour.Black)
+					if (W.Left.Colour == Colour.Black && W.Right.Colour == Colour.Black)
 					{
-						W.colour = Colour.Red; //case 2
-						X = X.parent; //case 2
+						W.Colour = Colour.Red; //case 2
+						x = x.Parent; //case 2
 					}
-					else if (W.right.colour == Colour.Black)
+					else if (W.Right.Colour == Colour.Black)
 					{
-						W.left.colour = Colour.Black; //case 3
-						W.colour = Colour.Red; //case 3
+						W.Left.Colour = Colour.Black; //case 3
+						W.Colour = Colour.Red; //case 3
 						RightRotate(W); //case 3
-						W = X.parent.right; //case 3
+						W = x.Parent.Right; //case 3
 					}
-					W.colour = X.parent.colour; //case 4
-					X.parent.colour = Colour.Black; //case 4
-					W.right.colour = Colour.Black; //case 4
-					LeftRotate(X.parent); //case 4
-					X = root; //case 4
+					W.Colour = x.Parent.Colour; //case 4
+					x.Parent.Colour = Colour.Black; //case 4
+					W.Right.Colour = Colour.Black; //case 4
+					LeftRotate(x.Parent); //case 4
+					x = root; //case 4
 				}
-				else //mirror code from above with "right" & "left" exchanged
+				else //mirror code from above with "Right" & "Left" exchanged
 				{
-					Node W = X.parent.left;
-					if (W.colour == Colour.Red)
+					Node W = x.Parent.Left;
+					if (W.Colour == Colour.Red)
 					{
-						W.colour = Colour.Black;
-						X.parent.colour = Colour.Red;
-						RightRotate(X.parent);
-						W = X.parent.left;
+						W.Colour = Colour.Black;
+						x.Parent.Colour = Colour.Red;
+						RightRotate(x.Parent);
+						W = x.Parent.Left;
 					}
-					if (W.right.colour == Colour.Black && W.left.colour == Colour.Black)
+					if (W.Right.Colour == Colour.Black && W.Left.Colour == Colour.Black)
 					{
-						W.colour = Colour.Black;
-						X = X.parent;
+						W.Colour = Colour.Black;
+						x = x.Parent;
 					}
-					else if (W.left.colour == Colour.Black)
+					else if (W.Left.Colour == Colour.Black)
 					{
-						W.right.colour = Colour.Black;
-						W.colour = Colour.Red;
+						W.Right.Colour = Colour.Black;
+						W.Colour = Colour.Red;
 						LeftRotate(W);
-						W = X.parent.left;
+						W = x.Parent.Left;
 					}
-					W.colour = X.parent.colour;
-					X.parent.colour = Colour.Black;
-					W.left.colour = Colour.Black;
-					RightRotate(X.parent);
-					X = root;
+					W.Colour = x.Parent.Colour;
+					x.Parent.Colour = Colour.Black;
+					W.Left.Colour = Colour.Black;
+					RightRotate(x.Parent);
+					x = root;
 				}
 			}
-			if (X != null)
-				X.colour = Colour.Black;
+			if (x != null)
+				x.Colour = Colour.Black;
 		}
-		private Node Minimum(Node X)
+		private Node Minimum(Node x)
 		{
-			while (X.left.left != null)
+			while (x.Left.Left != null)
 			{
-				X = X.left;
+				x = x.Left;
 			}
-			if (X.left.right != null)
+			if (x.Left.Right != null)
 			{
-				X = X.left.right;
+				x = x.Left.Right;
 			}
-			return X;
+			return x;
 		}
-		private Node TreeSuccessor(Node X)
+		private Node TreeSuccessor(Node x)
 		{
-			if (X.left != null)
+			if (x.Left != null)
 			{
-				return Minimum(X);
+				return Minimum(x);
 			}
 			else
 			{
-				Node Y = X.parent;
-				while (Y != null && X == Y.right)
+				Node y = x.Parent;
+				while (y != null && x == y.Right)
 				{
-					X = Y;
-					Y = Y.parent;
+					x = y;
+					y = y.Parent;
 				}
-				return Y;
+				return y;
 			}
 		}
 	}
