@@ -52,16 +52,7 @@ namespace Algorithms
 
         public void Insert(T data)
         {
-            if (_rootNode == null)
-            {
-                _rootNode = new BinaryTreeNode<T>
-                {
-                    Data = data
-                };
-                return;
-            }
-
-            Insert(data, _rootNode);
+            _rootNode = Insert(data, _rootNode);
         }
 
         public void Remove(T data)
@@ -71,7 +62,7 @@ namespace Algorithms
                 throw new InvalidOperationException("The tree is empty.");
             }
 
-            throw new NotImplementedException();
+            Remove(data, _rootNode);
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -134,8 +125,16 @@ namespace Algorithms
             return isSorted;
         }
 
-        private static void Insert(T data, BinaryTreeNode<T> node)
+        private static BinaryTreeNode<T> Insert(T data, BinaryTreeNode<T> node)
         {
+            if (node == null)
+            {
+                return new BinaryTreeNode<T>
+                {
+                    Data = data,
+                };
+            }
+
             var comparisonValue = data.CompareTo(node.Data);
 
             if (comparisonValue == 0)
@@ -145,33 +144,14 @@ namespace Algorithms
 
             if (comparisonValue < 0)
             {
-                if (node.LeftChild == null)
-                {
-                    node.LeftChild = new BinaryTreeNode<T>
-                    {
-                        Data = data
-                    };
-                    return;
-                }
-
-                Insert(data, node.LeftChild);
-                return;
+                node.LeftChild = Insert(data, node.LeftChild);
             }
-
-            if (comparisonValue > 0)
+            else
             {
-                if (node.RightChild == null)
-                {
-                    node.RightChild = new BinaryTreeNode<T>
-                    {
-                        Data = data
-                    };
-                    return;
-                }
-
-                Insert(data, node.RightChild);
-                return;
+                node.RightChild = Insert(data, node.RightChild);
             }
+
+            return node;
         }
 
         private static bool Contains(T data, BinaryTreeNode<T> node)
@@ -189,6 +169,21 @@ namespace Algorithms
             }
 
             return node.RightChild != null && Contains(data, node.RightChild);
+        }
+
+        private static void Remove(T data, BinaryTreeNode<T> node)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static BinaryTreeNode<T> FindMinimum(BinaryTreeNode<T> node)
+        {
+            if (node?.LeftChild != null)
+            {
+                return FindMinimum(node.LeftChild);
+            }
+
+            return node;
         }
     }
 }
