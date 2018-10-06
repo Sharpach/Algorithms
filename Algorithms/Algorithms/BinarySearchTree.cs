@@ -42,12 +42,7 @@ namespace Algorithms
 
         public bool Contains(T data)
         {
-            if (_rootNode == null)
-            {
-                return false;
-            }
-
-            return Contains(data, _rootNode);
+            return !IsEmpty && Contains(data, _rootNode);
         }
 
         public void Insert(T data)
@@ -156,19 +151,21 @@ namespace Algorithms
 
         private static bool Contains(T data, BinaryTreeNode<T> node)
         {
-            var comparisonValue = data.CompareTo(node.Data);
+            int comparisonValue = 1;
 
-            if (comparisonValue == 0)
+            while (node != null && (comparisonValue = data.CompareTo(node.Data)) != 0)
             {
-                return true;
+                if (comparisonValue < 0)
+                {
+                    node = node.LeftChild;
+                }
+                else
+                {
+                    node = node.RightChild;
+                }
             }
 
-            if (comparisonValue < 0)
-            {
-                return node.LeftChild != null && Contains(data, node.LeftChild);
-            }
-
-            return node.RightChild != null && Contains(data, node.RightChild);
+            return comparisonValue == 0;
         }
 
         private static void Remove(T data, BinaryTreeNode<T> node)
@@ -178,9 +175,14 @@ namespace Algorithms
 
         private static BinaryTreeNode<T> FindMinimum(BinaryTreeNode<T> node)
         {
-            if (node?.LeftChild != null)
+            if (node == null)
             {
-                return FindMinimum(node.LeftChild);
+                throw new ArgumentNullException(nameof(node));
+            }
+
+            while (node.LeftChild != null)
+            {
+                node = node.LeftChild;
             }
 
             return node;
