@@ -1,4 +1,4 @@
-﻿using Algorithms.Models;
+﻿using Algorithms.BinarySearchTree;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -103,9 +103,9 @@ namespace Algorithms.Tests.BinarySearchTreeTests
             rootNode.LeftChild.Data.Should().Be(newLeftChild);
         }
 
-        private static BinaryTreeNode<int> BuildNodeWithFilledOutSubtrees()
+        private static Node<int> BuildNodeWithFilledOutSubtrees()
         {
-            var rootNode = new BinaryTreeNode<int>
+            var rootNode = new Node<int>
             {
                 Data = 5
             };

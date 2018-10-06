@@ -1,3 +1,4 @@
+using Algorithms.BinarySearchTree;
 using FluentAssertions;
 using Xunit;
 

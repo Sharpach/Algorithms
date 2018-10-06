@@ -1,4 +1,4 @@
-using Algorithms.Models;
+using Algorithms.BinarySearchTree;
 using FluentAssertions;
 using System;
 using Xunit;
@@ -65,7 +65,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
             const int rootNodeValue = 10;
             const int valueToInsert = rootNodeValue - 1;
 
-            var rootNode = new BinaryTreeNode<int>
+            var rootNode = new Node<int>
             {
                 Data = rootNodeValue
             };
@@ -83,7 +83,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
             const int rootNodeValue = 10;
             const int valueToInsert = rootNodeValue + 1;
 
-            var rootNode = new BinaryTreeNode<int>
+            var rootNode = new Node<int>
             {
                 Data = rootNodeValue
             };

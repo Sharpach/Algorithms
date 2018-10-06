@@ -1,15 +1,15 @@
-using Algorithms.Models;
+using Algorithms.BinarySearchTree;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithms
+namespace Algorithms.BinarySearchTree
 {
     public class BinarySearchTree<T> : IEnumerable<T>
         where T : IComparable<T>
     {
-        private BinaryTreeNode<T> _rootNode;
+        private Node<T> _rootNode;
 
         public BinarySearchTree()
         {
@@ -17,13 +17,13 @@ namespace Algorithms
 
         public BinarySearchTree(T data)
         {
-            _rootNode = new BinaryTreeNode<T>
+            _rootNode = new Node<T>
             {
                 Data = data
             };
         }
 
-        public BinarySearchTree(BinaryTreeNode<T> rootNode)
+        public BinarySearchTree(Node<T> rootNode)
         {
             if (rootNode == null)
             {
@@ -80,7 +80,7 @@ namespace Algorithms
             return GetEnumerator();
         }
 
-        private static IEnumerable<T> IterateNodes(BinaryTreeNode<T> node)
+        private static IEnumerable<T> IterateNodes(Node<T> node)
         {
             if (node.LeftChild != null)
             {
@@ -101,7 +101,7 @@ namespace Algorithms
             }
         }
 
-        private static bool IsSorted(BinaryTreeNode<T> node)
+        private static bool IsSorted(Node<T> node)
         {
             if (node.IsLeafNode)
             {
@@ -125,11 +125,11 @@ namespace Algorithms
             return isSorted;
         }
 
-        private static BinaryTreeNode<T> Insert(T data, BinaryTreeNode<T> node)
+        private static Node<T> Insert(T data, Node<T> node)
         {
             if (node == null)
             {
-                return new BinaryTreeNode<T>
+                return new Node<T>
                 {
                     Data = data,
                 };
@@ -154,7 +154,7 @@ namespace Algorithms
             return node;
         }
 
-        private static bool Contains(T data, BinaryTreeNode<T> node)
+        private static bool Contains(T data, Node<T> node)
         {
             int comparisonValue = 1;
 
@@ -173,7 +173,7 @@ namespace Algorithms
             return comparisonValue == 0;
         }
 
-        private static BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> node)
+        private static Node<T> Remove(T data, Node<T> node)
         {
             if (node == null)
             {
@@ -211,7 +211,7 @@ namespace Algorithms
             return node;
         }
 
-        private static BinaryTreeNode<T> FindMinimum(BinaryTreeNode<T> node)
+        private static Node<T> FindMinimum(Node<T> node)
         {
             if (node == null)
             {

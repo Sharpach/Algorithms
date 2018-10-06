@@ -1,4 +1,4 @@
-﻿using Algorithms.Models;
+﻿using Algorithms.BinarySearchTree;
 using FluentAssertions;
 using System;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
         public When_Node_Constructor_Is_Called()
         {
-            _tree = new BinarySearchTree<int>(new BinaryTreeNode<int>
+            _tree = new BinarySearchTree<int>(new Node<int>
             {
                 Data = DefaultData
             });
@@ -57,14 +57,14 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [InlineData(RightChildData, LeftChildData)] // Left child is greater, right child is lesser
         public void If_Root_Node_Is_Unsorted_Then_InvalidOperationException_Is_Thrown(int leftChild, int rightChild)
         {
-            var unsortedNode = new BinaryTreeNode<int>
+            var unsortedNode = new Node<int>
             {
                 Data = DefaultData,
-                LeftChild = new BinaryTreeNode<int>
+                LeftChild = new Node<int>
                 {
                     Data = leftChild
                 },
-                RightChild = new BinaryTreeNode<int>
+                RightChild = new Node<int>
                 {
                     Data = rightChild
                 }
@@ -84,17 +84,17 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [InlineData(LeftChildData + 1, LeftChildData - 1)] // Left child is greater, right child is lesser
         public void If_Left_Subtree_Is_Unsorted_Then_InvalidOperationException_Is_Thrown(int leftChildOfLeftChild, int rightChildOfLeftChild)
         {
-            var unsortedNode = new BinaryTreeNode<int>
+            var unsortedNode = new Node<int>
             {
                 Data = DefaultData,
-                LeftChild = new BinaryTreeNode<int>
+                LeftChild = new Node<int>
                 {
                     Data = LeftChildData,
-                    LeftChild = new BinaryTreeNode<int>
+                    LeftChild = new Node<int>
                     {
                         Data = leftChildOfLeftChild
                     },
-                    RightChild = new BinaryTreeNode<int>
+                    RightChild = new Node<int>
                     {
                         Data = rightChildOfLeftChild
                     }
@@ -115,17 +115,17 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [InlineData(RightChildData + 1, RightChildData - 1)] // Left child is greater, right child is lesser
         public void If_Right_Subtree_Is_Unsorted_Then_InvalidOperationException_Is_Thrown(int leftChildOfRightChild, int rightChildOfRightChild)
         {
-            var unsortedNode = new BinaryTreeNode<int>
+            var unsortedNode = new Node<int>
             {
                 Data = DefaultData,
-                RightChild = new BinaryTreeNode<int>
+                RightChild = new Node<int>
                 {
                     Data = RightChildData,
-                    LeftChild = new BinaryTreeNode<int>
+                    LeftChild = new Node<int>
                     {
                         Data = leftChildOfRightChild
                     },
-                    RightChild = new BinaryTreeNode<int>
+                    RightChild = new Node<int>
                     {
                         Data = rightChildOfRightChild
                     }
