@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Algorithms.Models;
+using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Models;
-using Shouldly;
 using Xunit;
 
 namespace Algorithms.Tests.BinarySearchTreeTests
@@ -16,11 +16,11 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         {
             var tree = new BinarySearchTree<int>();
 
-            tree.IsEmpty.ShouldBeTrue();
+            tree.IsEmpty.Should().BeTrue();
 
             Action badRemove = () => tree.Remove(10);
 
-            badRemove.ShouldThrow<InvalidOperationException>("The tree is empty.");
+            badRemove.Should().Throw<InvalidOperationException>("The tree is empty.");
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             Action badRemove = () => tree.Remove(0);
 
-            badRemove.ShouldThrow<InvalidOperationException>("The element does not exist.");
+            badRemove.Should().Throw<InvalidOperationException>("The element does not exist.");
         }
 
         [Fact]
@@ -43,19 +43,19 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             tree.Remove(node.LeftChild.LeftChild.Data);
 
-            node.LeftChild.LeftChild.ShouldBeNull();
+            node.LeftChild.LeftChild.Should().BeNull();
 
             tree.Remove(node.LeftChild.RightChild.Data);
 
-            node.LeftChild.RightChild.ShouldBeNull();
+            node.LeftChild.RightChild.Should().BeNull();
 
             tree.Remove(node.RightChild.LeftChild.Data);
 
-            node.RightChild.LeftChild.ShouldBeNull();
+            node.RightChild.LeftChild.Should().BeNull();
 
             tree.Remove(node.RightChild.RightChild.Data);
 
-            node.RightChild.RightChild.ShouldBeNull();
+            node.RightChild.RightChild.Should().BeNull();
         }
 
         [Fact]
@@ -72,11 +72,11 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             tree.Remove(node.LeftChild.Data);
 
-            node.LeftChild.Data.ShouldBe(newLeftChild);
+            node.LeftChild.Data.Should().Be(newLeftChild);
 
             tree.Remove(node.RightChild.Data);
 
-            node.RightChild.Data.ShouldBe(newRightChild);
+            node.RightChild.Data.Should().Be(newRightChild);
         }
 
         [Fact]
@@ -90,17 +90,17 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             tree.Remove(rootNode.LeftChild.Data);
 
-            rootNode.LeftChild.Data.ShouldBe(newLeftChild);
+            rootNode.LeftChild.Data.Should().Be(newLeftChild);
 
             tree.Remove(rootNode.RightChild.Data);
 
-            rootNode.RightChild.Data.ShouldBe(newRightChild);
+            rootNode.RightChild.Data.Should().Be(newRightChild);
 
             tree.Remove(rootNode.Data);
 
-            rootNode.Data.ShouldBe(newRootNode);
-            rootNode.RightChild.Data.ShouldBe(newRightChild);
-            rootNode.LeftChild.Data.ShouldBe(newLeftChild);
+            rootNode.Data.Should().Be(newRootNode);
+            rootNode.RightChild.Data.Should().Be(newRightChild);
+            rootNode.LeftChild.Data.Should().Be(newLeftChild);
         }
 
         private static BinaryTreeNode<int> BuildNodeWithFilledOutSubtrees()

@@ -1,5 +1,5 @@
 using Algorithms.Models;
-using Shouldly;
+using FluentAssertions;
 using System;
 using Xunit;
 
@@ -19,7 +19,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         {
             _tree.Insert(1);
 
-            _tree.Contains(1).ShouldBeTrue();
+            _tree.Contains(1).Should().BeTrue();
         }
 
         [Theory]
@@ -33,18 +33,18 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             foreach (var i in items)
             {
-                _tree.Contains(i).ShouldBeTrue();
+                _tree.Contains(i).Should().BeTrue();
             }
         }
 
         [Fact]
         public void Then_Tree_Is_Not_Empty()
         {
-            _tree.IsEmpty.ShouldBeTrue();
+            _tree.IsEmpty.Should().BeTrue();
 
             _tree.Insert(10);
 
-            _tree.IsEmpty.ShouldBeFalse();
+            _tree.IsEmpty.Should().BeFalse();
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             Action badInsert = () => _tree.Insert(duplicateToInsert);
 
-            badInsert.ShouldThrow<ArgumentException>("The element already exists in the tree.");
+            badInsert.Should().Throw<ArgumentException>("The element already exists in the tree.");
         }
 
         [Fact]
@@ -73,8 +73,8 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             tree.Insert(valueToInsert);
 
-            rootNode.LeftChild.ShouldNotBeNull();
-            rootNode.LeftChild.Data.ShouldBe(valueToInsert);
+            rootNode.LeftChild.Should().NotBeNull();
+            rootNode.LeftChild.Data.Should().Be(valueToInsert);
         }
 
         [Fact]
@@ -91,8 +91,8 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             tree.Insert(valueToInsert);
 
-            rootNode.RightChild.ShouldNotBeNull();
-            rootNode.RightChild.Data.ShouldBe(valueToInsert);
+            rootNode.RightChild.Should().NotBeNull();
+            rootNode.RightChild.Data.Should().Be(valueToInsert);
         }
     }
 }

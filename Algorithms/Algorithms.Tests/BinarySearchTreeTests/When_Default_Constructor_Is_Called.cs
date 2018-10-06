@@ -1,4 +1,4 @@
-using Shouldly;
+using FluentAssertions;
 using Xunit;
 
 namespace Algorithms.Tests.BinarySearchTreeTests
@@ -8,13 +8,13 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         [Fact]
         public void Then_IsEmpty_Is_True()
         {
-            new BinarySearchTree<int>().IsEmpty.ShouldBeTrue();
+            new BinarySearchTree<int>().IsEmpty.Should().BeTrue();
         }
 
         [Fact]
         public void Then_Enumeration_Yields_No_Items()
         {
-            new BinarySearchTree<int>().ShouldBeEmpty();
+            new BinarySearchTree<int>().Should().BeEmpty();
         }
     }
 }

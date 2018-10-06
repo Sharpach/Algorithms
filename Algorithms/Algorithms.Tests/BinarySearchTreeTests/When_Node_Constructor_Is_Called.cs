@@ -1,6 +1,6 @@
-﻿using System;
-using Algorithms.Models;
-using Shouldly;
+﻿using Algorithms.Models;
+using FluentAssertions;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -27,25 +27,25 @@ namespace Algorithms.Tests.BinarySearchTreeTests
         {
             Action badConstructor = () => new BinarySearchTree<int>(null);
 
-            badConstructor.ShouldThrow<ArgumentNullException>();
+            badConstructor.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Then_IsEmpty_Is_False()
         {
-            _tree.IsEmpty.ShouldBeFalse();
+            _tree.IsEmpty.Should().BeFalse();
         }
 
         [Fact]
         public void Then_Contains_Returns_True()
         {
-            _tree.Contains(DefaultData).ShouldBeTrue();
+            _tree.Contains(DefaultData).Should().BeTrue();
         }
 
         [Fact]
         public void Then_Enumeration_Yields_Exactly_One_Item()
         {
-            _tree.Count().ShouldBe(1);
+            _tree.Count().Should().Be(1);
         }
 
         [Theory]
@@ -72,7 +72,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             Action badConstruction = () => new BinarySearchTree<int>(unsortedNode);
 
-            badConstruction.ShouldThrow<InvalidOperationException>("Root node is unsorted.");
+            badConstruction.Should().Throw<InvalidOperationException>("Root node is unsorted.");
         }
 
         [Theory]
@@ -103,7 +103,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             Action badConstruction = () => new BinarySearchTree<int>(unsortedNode);
 
-            badConstruction.ShouldThrow<InvalidOperationException>("Root node is unsorted.");
+            badConstruction.Should().Throw<InvalidOperationException>("Root node is unsorted.");
         }
 
         [Theory]
@@ -134,7 +134,7 @@ namespace Algorithms.Tests.BinarySearchTreeTests
 
             Action badConstruction = () => new BinarySearchTree<int>(unsortedNode);
 
-            badConstruction.ShouldThrow<InvalidOperationException>("Root node is unsorted.");
+            badConstruction.Should().Throw<InvalidOperationException>("Root node is unsorted.");
         }
     }
 }
