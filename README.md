@@ -12,7 +12,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Trie](https://github.com/Sharpach/Algorithms/issues/5)                                           | :heavy_check_mark: | 
 | [Reverse polish notation](https://github.com/Sharpach/Algorithms/issues/4)                        | :heavy_check_mark: | 
 | [Brackets Balance](https://www.hackerrank.com/challenges/balanced-brackets/problem)               | :heavy_check_mark: |
-| [N-ary tree](https://github.com/Sharpach/Algorithms/issues/36)                                    | 
+| [N-ary tree](https://github.com/Sharpach/Algorithms/issues/36)                                    | :heavy_check_mark: |
 | [Hashtable](https://github.com/Sharpach/Algorithms/issues/32)                                     | 
 | [B-tree](https://github.com/Sharpach/Algorithms/issues/34)                                        | 
 | [Splay tree](https://github.com/Sharpach/Algorithms/issues/40)                                    | 
@@ -29,3 +29,5 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  |
 | [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                | :heavy_check_mark:
 | [Binary search tree](https://github.com/Sharpach/Algorithms/issues/3)                             | :heavy_check_mark:
+| [Fenwick tree](https://github.com/Sharpach/Algorithms/pull/49)                                    | :heavy_check_mark:
+| [Catalan numbers](https://github.com/Sharpach/Algorithms/pull/48)                                 | :heavy_check_mark:
