@@ -21,10 +21,11 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | 
 | [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | :heavy_check_mark:
 | [Huffman coding](https://github.com/Sharpach/Algorithms/issues/1)                                 | 
-| [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 |
+| [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 | :heavy_check_mark:
 | [Dijkstra’s algorithm](https://github.com/Sharpach/Algorithms/issues/22)                          | 
 | [A*](https://github.com/Sharpach/Algorithms/issues/35)                                            | 
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
 | [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
 | [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  |
-| [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                |
+| [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                | :heavy_check_mark:
+| [Binary search tree](https://github.com/Sharpach/Algorithms/issues/3)                             | :heavy_check_mark:
