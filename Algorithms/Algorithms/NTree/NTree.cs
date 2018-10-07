@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithms.NTree
 {
-    public class NTree<T>
+    public class NTree<T> where T : IEquatable<T>
     {
         public T Value { get; set; }
         public NTree<T> Parent { get; set; }
@@ -23,7 +24,28 @@ namespace Algorithms.NTree
             Children.Add(child);
             return this;
         }
-        
+
+        public NTree<T> Find(T value)
+        {
+            if (Value.Equals(value))
+            {
+                return this;
+            }
+
+            return Children.Select(x => x.Find(value)).FirstOrDefault(x => x != null);
+        }
+
+        public void Remove()
+        {
+            if (Parent == null)
+            {
+                throw new ArgumentException("Can't remove root");
+            }
+
+            var index = Parent.Children.FindIndex(x => x.Value.Equals(Value));
+            Parent.Children.RemoveAt(index);
+        }
+
         // returns concatenated values in prefix order
         public override string ToString()
         {

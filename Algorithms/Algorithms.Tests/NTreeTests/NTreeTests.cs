@@ -1,4 +1,5 @@
-﻿using Algorithms.NTree;
+﻿using System;
+using Algorithms.NTree;
 using Xunit;
 
 namespace Algorithms.Tests.NTreeTests
@@ -45,6 +46,50 @@ namespace Algorithms.Tests.NTreeTests
             var tree = BuildTree();
 
             Assert.Null(tree.Parent);
+        }
+
+        [Fact]
+        public void FindReturnsCorrectNode()
+        {
+            var tree = BuildTree();
+            var expected = tree.Children[0].Children[0];
+
+            var result = tree.Find(4);
+
+            Assert.Same(expected, result);
+        }
+
+        [Fact]
+        public void FindReturnsNullWhenValueDoesNotExist()
+        {
+            var tree = BuildTree();
+
+            var result = tree.Find(-14);
+
+            Assert.Null(result);
+        }
+
+        [Theory]
+        [InlineData(1, "027389")]
+        [InlineData(2, "01465389")]
+        [InlineData(9, "014652738")]
+        public void RemoveWorks(int node, string expected)
+        {
+            var tree = BuildTree();
+            var nodeToRemove = tree.Find(node);
+
+            nodeToRemove.Remove();
+
+            Assert.Equal(expected, tree.ToString());
+        }
+
+        [Fact]
+        public void ThrowsExceptionWhenRemovingRoot()
+        {
+            var tree = BuildTree();
+            Action removeRoot = () => tree.Remove();
+
+            Assert.Throws<ArgumentException>(removeRoot);
         }
     }
 }
