@@ -23,7 +23,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Huffman coding](https://github.com/Sharpach/Algorithms/issues/1)                                 | 
 | [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 | :heavy_check_mark: |
 | [Dijkstra’s algorithm](https://github.com/Sharpach/Algorithms/issues/22)                          | 
-| [A*](https://github.com/Sharpach/Algorithms/issues/35)                                            | 
+| [A*](https://github.com/Sharpach/Algorithms/issues/35)                                            | :heavy_check_mark: |
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
 | [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
 | [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  |
