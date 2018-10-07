@@ -17,17 +17,17 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [B-tree](https://github.com/Sharpach/Algorithms/issues/34)                                        | 
 | [Splay tree](https://github.com/Sharpach/Algorithms/issues/40)                                    | 
 | [Binary heap](https://github.com/Sharpach/Algorithms/issues/7)                                    | :heavy_check_mark: |
-| [Topological sort](https://github.com/Sharpach/Algorithms/issues/2)                               | 
+| [Topological sort](https://github.com/Sharpach/Algorithms/issues/2)                               | :heavy_check_mark: |
 | [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | 
-| [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | :heavy_check_mark:
+| [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | :heavy_check_mark: |
 | [Huffman coding](https://github.com/Sharpach/Algorithms/issues/1)                                 | 
-| [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 | :heavy_check_mark:
+| [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 | :heavy_check_mark: |
 | [Dijkstra’s algorithm](https://github.com/Sharpach/Algorithms/issues/22)                          | 
 | [A*](https://github.com/Sharpach/Algorithms/issues/35)                                            | 
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
 | [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
 | [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  |
-| [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                | :heavy_check_mark:
-| [Binary search tree](https://github.com/Sharpach/Algorithms/issues/3)                             | :heavy_check_mark:
-| [Fenwick tree](https://github.com/Sharpach/Algorithms/pull/49)                                    | :heavy_check_mark:
-| [Catalan numbers](https://github.com/Sharpach/Algorithms/pull/48)                                 | :heavy_check_mark:
+| [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                | :heavy_check_mark: |
+| [Binary search tree](https://github.com/Sharpach/Algorithms/issues/3)                             | :heavy_check_mark: |
+| [Fenwick tree](https://github.com/Sharpach/Algorithms/pull/49)                                    | :heavy_check_mark: |
+| [Catalan numbers](https://github.com/Sharpach/Algorithms/pull/48)                                 | :heavy_check_mark: |
