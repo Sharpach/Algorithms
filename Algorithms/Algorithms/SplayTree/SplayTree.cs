@@ -18,11 +18,11 @@ namespace Algorithms.SplayTree
         /// <param name="list">The list of values to insert into the tree</param>
         /// <param name="parent">The parent node</param>
         /// <returns>The newly created Node</returns>
-        public static Node BuildTree(IReadOnlyCollection<T> list, Node parent = null)
+        public static Node<T> BuildTree(IReadOnlyCollection<T> list, Node<T> parent = null)
         {
             if (list.Count == 0) return null;
 
-            var node = new Node
+            var node = new Node<T>
             {
                 Value = list.First()
             };
@@ -42,7 +42,7 @@ namespace Algorithms.SplayTree
         /// <param name="root">The root Node of the tree to search</param>
         /// <param name="searchValue">The value for which to search</param>
         /// <returns>If present, the Node containing the search value, otherwise, the last Node searched</returns>
-        public static Node Splay(Node root, T searchValue)
+        public static Node<T> Splay(Node<T> root, T searchValue)
         {
             if (root == null || root.Value.CompareTo(searchValue) == 0)
             {
@@ -62,7 +62,7 @@ namespace Algorithms.SplayTree
         /// <param name="root">The root Node of the sub-tree to search</param>
         /// <param name="searchValue">The value for which to search</param>
         /// <returns>If no right Node exists, return the root. Otherwise, the root of the possibly rotated sub-tree</returns>
-        private static Node TraverseRightSubTree(Node root, T searchValue)
+        private static Node<T> TraverseRightSubTree(Node<T> root, T searchValue)
         {
             if (root.Right == null) return root;
 
@@ -90,7 +90,7 @@ namespace Algorithms.SplayTree
         /// <param name="root">The root Node of the sub-tree to search</param>
         /// <param name="searchValue">The value for which to search</param>
         /// <returns>If no left Node exists, return the root. Otherwise, the root of the possibly rotated sub-tree</returns>
-        private static Node TraverseLeftSubTree(Node root, T searchValue)
+        private static Node<T> TraverseLeftSubTree(Node<T> root, T searchValue)
         {
             if (root.Left == null) return root;
 
@@ -117,7 +117,7 @@ namespace Algorithms.SplayTree
         /// </summary>
         /// <param name="x">Node around which to rotate</param>
         /// <returns>The new root of the tree</returns>
-        private static Node LeftRotate(Node x)
+        private static Node<T> LeftRotate(Node<T> x)
         {
             var y = x.Right;
             x.Right = y.Left;
@@ -130,23 +130,12 @@ namespace Algorithms.SplayTree
         /// </summary>
         /// <param name="x">Node around which to rotate</param>
         /// <returns>The new root of the tree</returns>
-        private static Node RightRotate(Node x)
+        private static Node<T> RightRotate(Node<T> x)
         {
             var y = x.Left;
             x.Left = y.Right;
             y.Right = x;
             return y;
-        }
-
-        #endregion
-
-        #region Classes
-
-        public class Node
-        {
-            public T Value { get; set; }
-            public Node Left { get; set; }
-            public Node Right { get; set; }
         }
 
         #endregion
