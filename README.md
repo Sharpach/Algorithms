@@ -13,7 +13,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Reverse polish notation](https://github.com/Sharpach/Algorithms/issues/4)                        | :heavy_check_mark: | 
 | [Brackets Balance](https://www.hackerrank.com/challenges/balanced-brackets/problem)               | :heavy_check_mark: |
 | [N-ary tree](https://github.com/Sharpach/Algorithms/issues/36)                                    | :heavy_check_mark: |
-| [Hashtable](https://github.com/Sharpach/Algorithms/issues/32)                                     | 
+| [Hashtable](https://github.com/Sharpach/Algorithms/issues/32)                                     | :heavy_check_mark: |
 | [B-tree](https://github.com/Sharpach/Algorithms/issues/34)                                        | 
 | [Splay tree](https://github.com/Sharpach/Algorithms/issues/40)                                    | 
 | [Binary heap](https://github.com/Sharpach/Algorithms/issues/7)                                    | :heavy_check_mark: |
