@@ -10,4 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HashTableTests\" />
+  </ItemGroup>
 </Project>
