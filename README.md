@@ -25,7 +25,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [A*](https://github.com/Sharpach/Algorithms/issues/35)                                            | :heavy_check_mark: |
 | [Decision tree](https://github.com/Sharpach/Algorithms/issues/6)                                  | :heavy_check_mark: |
 | [Segment tree](https://github.com/Sharpach/Algorithms/issues/23)                                  | :heavy_check_mark: |
-| [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  | :heavy_check_mark  |
+| [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  | :heavy_check_mark: |
 | [Red-Black tree](https://github.com/Sharpach/Algorithms/issues/33)                                | :heavy_check_mark: |
 | [Binary search tree](https://github.com/Sharpach/Algorithms/issues/3)                             | :heavy_check_mark: |
 | [Fenwick tree](https://github.com/Sharpach/Algorithms/pull/49)                                    | :heavy_check_mark: |
