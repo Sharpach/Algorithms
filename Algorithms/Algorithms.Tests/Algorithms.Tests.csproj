@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HashTableTests\" />
+    <Folder Include="TrueRandomizerTests\" />
   </ItemGroup>
 </Project>

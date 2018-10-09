@@ -5,5 +5,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="HashTable\" />
+    <Folder Include="TrueRandomizer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TrueRandomizer\EmptyClass.exe" />
   </ItemGroup>
 </Project>
