@@ -14,7 +14,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [N-ary tree](https://github.com/Sharpach/Algorithms/issues/36)                                    | :heavy_check_mark: |
 | [Hashtable](https://github.com/Sharpach/Algorithms/issues/32)                                     | :heavy_check_mark: |
 | [B-tree](https://github.com/Sharpach/Algorithms/issues/34)                                        | 
-| [Splay tree](https://github.com/Sharpach/Algorithms/issues/40)                                    | 
+| [Splay tree](https://github.com/Sharpach/Algorithms/issues/40)                                    | :heavy_check_mark: |
 | [Binary heap](https://github.com/Sharpach/Algorithms/issues/7)                                    | :heavy_check_mark: |
 | [Topological sort](https://github.com/Sharpach/Algorithms/issues/2)                               | :heavy_check_mark: |
 | [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | 
