@@ -19,7 +19,7 @@ See [Contributing.md](https://github.com/Sharpach/Algorithms/blob/master/CONTRIB
 | [Factorization](https://github.com/Sharpach/Algorithms/issues/41)                                 | :heavy_check_mark: |
 | [Fenwick tree](https://github.com/Sharpach/Algorithms/pull/49)                                    | :heavy_check_mark: |
 | [Fowler–Noll–Vo hash function](https://github.com/Sharpach/Algorithms/issues/37)                  | :heavy_check_mark: |
-| [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | 
+| [Graph - DFS, BFS](https://github.com/Sharpach/Algorithms/issues/10)                              | :heavy_check_mark: |
 | [Hashtable](https://github.com/Sharpach/Algorithms/issues/32)                                     | :heavy_check_mark: |
 | [Huffman coding](https://github.com/Sharpach/Algorithms/issues/1)                                 | 
 | [Knuth–Morris–Pratt string-searching algorithm](https://github.com/Sharpach/Algorithms/issues/9)  | :heavy_check_mark: |
